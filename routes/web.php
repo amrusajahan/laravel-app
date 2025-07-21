@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,4 +29,10 @@ Route::get('/products/{product}/edit', [ProductController::class, 'edit'])
 Route::patch('/products/{product}', [ProductController::class, 'update'])
     ->name('products.update');
 
-Route::delete('/products/{product}',[ProductController::class,'destroy'])->name('products.destroy');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+
+// Route::get('/stories', [StoryController::class, 'index'])
+//     ->name('stories.index');
+
+Route::resource('stories', StoryController::class);
