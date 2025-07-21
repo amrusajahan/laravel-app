@@ -22,7 +22,7 @@ class StoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('stories.create');
     }
 
     /**
@@ -30,7 +30,7 @@ class StoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Story::create($request->input());
     }
 
     /**

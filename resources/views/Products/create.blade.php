@@ -22,7 +22,7 @@
             <form action="{{ route('products.store') }}" method="POST" class="space-y-4">
                 @csrf
                 {{-- Inject the form fields --}}
-                <x-products.form />
+                <x-forms.product />
             </form>
         </div>
     </div>

@@ -22,11 +22,17 @@
         .font-sono {
             font-family: 'Sono', monospace;
         }
+
+        .break-hyphen {
+            overflow-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+        }
     </style>
 
 </head>
 
-<body class="bg-gradient-to-br from-amber-100 to-yellow-200" >
+<body class="bg-gradient-to-br from-amber-100 to-yellow-200">
     <x-navbar />
 
     @if(session('status'))

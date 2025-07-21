@@ -32,7 +32,5 @@ Route::patch('/products/{product}', [ProductController::class, 'update'])
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 
-// Route::get('/stories', [StoryController::class, 'index'])
-//     ->name('stories.index');
 
 Route::resource('stories', StoryController::class);

@@ -10,7 +10,7 @@
                 @csrf
                 @method('PATCH')
 
-                <x-products.form :product="$product" />
+                <x-forms.product :product="$product" />
             </form>
         </div>
     </div>
