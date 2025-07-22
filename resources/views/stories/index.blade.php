@@ -17,7 +17,9 @@
                     {{ \Illuminate\Support\Str::limit($story->content, 200, '...') }}
                 </p>
                 <button class="mt-4 inline-block text-sm text-white bg-black px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300">
-                    Read More
+                    <a href="stories/{{$story->id}}">
+                        Read More
+                    </a>
                 </button>
             </div>
             @endforeach

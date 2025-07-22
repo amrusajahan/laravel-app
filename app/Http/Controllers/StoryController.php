@@ -40,7 +40,7 @@ class StoryController extends Controller
      */
     public function show(Story $story)
     {
-        //
+        return view('stories.show',compact('story'));
     }
 
     /**

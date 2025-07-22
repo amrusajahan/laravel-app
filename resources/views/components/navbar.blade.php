@@ -1,6 +1,6 @@
 @props(['items' => [
     'Home' => '/',
-    'Features' => '/features',
+    'stories' => '/stories',
     'About' => '/about',
     'Contact' => '/contact'
 ]])
