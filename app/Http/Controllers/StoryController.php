@@ -31,6 +31,8 @@ class StoryController extends Controller
     public function store(Request $request)
     {
         Story::create($request->input());
+
+        return redirect()->route('stories.index');
     }
 
     /**
