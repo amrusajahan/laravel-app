@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaveStoryRequest;
 use App\Models\Story;
 use Illuminate\Http\Request;
 
@@ -28,11 +29,11 @@ class StoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SaveStoryRequest $request)
     {
         Story::create($request->input());
 
-        return redirect()->route('stories.index');
+        return redirect()->route('stories.index')->with('status','Story is wrote successfully');
     }
 
     /**
