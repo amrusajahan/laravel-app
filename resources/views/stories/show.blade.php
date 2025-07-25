@@ -22,6 +22,15 @@
                 <a href="{{ route('stories.edit',$story)}}" class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-pink-600 transition">
                     Edit
                 </a>
+
+                <form method="POST" action="{{ route('stories.destroy', $story) }}"
+                    onsubmit="return confirm('Are you sure you want to delete this story?');" class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-pink-600 transition">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">
+                        Delete
+                    </button>
+                </form>
             </div>
         </div>
     </div>
