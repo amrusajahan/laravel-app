@@ -18,6 +18,10 @@
                 <a href="{{ route('stories.index') }}" class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-pink-600 transition">
                     ← Back to Stories
                 </a>
+
+                <a href="{{ route('stories.edit',$story)}}" class="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-pink-600 transition">
+                    Edit
+                </a>
             </div>
         </div>
     </div>

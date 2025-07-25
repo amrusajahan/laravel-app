@@ -33,7 +33,7 @@ class StoryController extends Controller
     {
         Story::create($request->input());
 
-        return redirect()->route('stories.index')->with('status','Story is wrote successfully');
+        return redirect()->route('stories.index')->with('status', 'Story is wrote successfully');
     }
 
     /**
@@ -41,7 +41,7 @@ class StoryController extends Controller
      */
     public function show(Story $story)
     {
-        return view('stories.show',compact('story'));
+        return view('stories.show', compact('story'));
     }
 
     /**
@@ -49,15 +49,17 @@ class StoryController extends Controller
      */
     public function edit(Story $story)
     {
-        //
+        return view('stories.edit', compact('story'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Story $story)
+    public function update(SaveStoryRequest $request, Story $story)
     {
-        //
+        $story->update($request->validated());
+
+        return redirect()->route('stories.show', $story);
     }
 
     /**
