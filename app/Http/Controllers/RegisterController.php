@@ -31,6 +31,8 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        dd($user);
+        // Optionally, you can log the user in after registration
+        // auth()->login($user);
+        return redirect()->route('login.show')->with('success', 'Registration successful! Please log in.');
     }
 }

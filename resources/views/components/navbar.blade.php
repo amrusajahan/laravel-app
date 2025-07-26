@@ -1,13 +1,13 @@
 @props(['items' => [
-    'Home' => '/',
-    'stories' => '/stories',
-    'About' => '/about',
-    'Contact' => '/contact'
+'Home' => '/',
+'stories' => '/stories',
+'About' => '/about',
+'Contact' => '/contact'
 ]])
 
 <div x-data="{ mobileMenuOpen: false }" class="font-sono my-5 mx-3 md:mx-5">
     <nav class="bg-amber-100 border-4 border-black rounded-3xl p-4 shadow-[6px_6px_0_0_rgba(0,0,0,1)] relative overflow-hidden">
-        
+
         <!-- Doodle squiggly SVG background -->
         <!-- <div class="absolute -top-4 left-0 w-full h-10">
             <svg viewBox="0 0 100 10" preserveAspectRatio="none" class="w-full h-full">
@@ -35,39 +35,47 @@
             <!-- Desktop nav links -->
             <div class="hidden md:flex gap-6">
                 @foreach($items as $text => $url)
-                    <a href="{{ $url }}"
-                       class="relative text-black text-base font-semibold no-underline group px-1 py-0.5 hover:text-blue-600">
-                        {{ $text }}
-                        <span class="absolute bottom-0 left-0 w-full h-1 bg-pink-300 rounded-full scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
-                    </a>
+                <a href="{{ $url }}"
+                    class="relative text-black text-base font-semibold no-underline group px-1 py-0.5 hover:text-blue-600">
+                    {{ $text }}
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-pink-300 rounded-full scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+                </a>
                 @endforeach
             </div>
 
+            @auth
+            <div class="flex justify-end items-center gap-4">
+                <span class="bg-pink-200 border-2 border-black rounded-full px-5 py-2 text-sm font-semibold text-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] transition-all duration-200 -rotate-1 hover:rotate-0 hover:-translate-y-0.5">Welcome, {{ Auth::user()->name }}!</span>
+
+                <a href="/logout" class="bg-pink-200 border-2 border-black rounded-full px-5 py-2 text-sm font-semibold text-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] transition-all duration-200 -rotate-1 hover:rotate-0 hover:-translate-y-0.5">Log Out</a>
+            </div>
+            @else
             <!-- Login button -->
             <div class="hidden md:block">
                 <a href="/login"
-                   class="bg-pink-200 border-2 border-black rounded-full px-5 py-2 text-sm font-semibold text-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] transition-all duration-200 -rotate-1 hover:rotate-0 hover:-translate-y-0.5">
+                    class="bg-pink-200 border-2 border-black rounded-full px-5 py-2 text-sm font-semibold text-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] transition-all duration-200 -rotate-1 hover:rotate-0 hover:-translate-y-0.5">
                     Login
                 </a>
             </div>
+            @endauth
         </div>
 
         <!-- Mobile menu -->
         <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false"
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 scale-95"
-             x-transition:enter-end="opacity-100 scale-100"
-             x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 scale-100"
-             x-transition:leave-end="opacity-0 scale-95"
-             class="md:hidden mt-4 px-3 py-4 border-t-2 border-black border-dashed space-y-2 bg-amber-50 rounded-xl shadow-inner">
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="md:hidden mt-4 px-3 py-4 border-t-2 border-black border-dashed space-y-2 bg-amber-50 rounded-xl shadow-inner">
             @foreach($items as $text => $url)
-                <a href="{{ $url }}" class="block px-3 py-2 rounded-lg bg-white border border-black text-black text-base font-medium hover:bg-yellow-200 transition">
-                    {{ $text }}
-                </a>
+            <a href="{{ $url }}" class="block px-3 py-2 rounded-lg bg-white border border-black text-black text-base font-medium hover:bg-yellow-200 transition">
+                {{ $text }}
+            </a>
             @endforeach
             <a href="/login"
-               class="block w-full text-center bg-pink-200 border-2 border-black rounded-full px-4 py-2 text-base font-semibold shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+                class="block w-full text-center bg-pink-200 border-2 border-black rounded-full px-4 py-2 text-base font-semibold shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
                 Login
             </a>
         </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoryController;
@@ -42,3 +43,11 @@ Route::get('/register', [RegisterController::class, 'show'])
 
 Route::post('/register', [RegisterController::class, 'process'])
     ->name('register.process');
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])
+    ->name('login.show');
+
+Route::post('/login', [AuthController::class, 'process'])
+    ->name('login.process');
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

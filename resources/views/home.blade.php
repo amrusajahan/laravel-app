@@ -1,4 +1,7 @@
 <x-layout>
+
+    
+
     <div class="font-sono min-h-screen  flex flex-col justify-center items-center text-center p-8">
         <h1 class="text-5xl font-bold mb-6 text-black ">
             🎉 Welcome to <span class="text-pink-500 underline decoration-wavy decoration-pink-400">MyApp</span>!
