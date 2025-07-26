@@ -31,9 +31,9 @@ class StoryController extends Controller
      */
     public function store(SaveStoryRequest $request)
     {
-        Story::create($request->input());
+        $story = Story::create($request->input());
 
-        return redirect()->route('stories.index')->with('status', 'Story is wrote successfully');
+        return redirect()->route('stories.show', $story)->with('status', 'Story is wrote successfully');
     }
 
     /**

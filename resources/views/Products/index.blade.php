@@ -1,18 +1,5 @@
 <x-layout>
-    {{-- Add Google Font and Tailwind config (if not already present in your layout) --}}
-    @once
-        @push('head')
-            <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;600&display=swap" rel="stylesheet">
-            <script src="https://cdn.tailwindcss.com"></script>
-            <style>
-                .font-sono {
-                    font-family: 'Sono', monospace;
-                }
-            </style>
-        @endpush
-    @endonce
-
-    <div class="font-sono min-h-screen bg-amber-50 py-8 px-4 sm:px-8 lg:px-16">
+    <div class="font-sono min-h-screen py-8 px-4 sm:px-8 lg:px-16">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-black">🛍️ Products</h1>
             <a href="{{ route('products.create') }}"

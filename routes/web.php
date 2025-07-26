@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,3 +35,10 @@ Route::delete('/products/{product}', [ProductController::class, 'destroy'])->nam
 
 
 Route::resource('stories', StoryController::class);
+
+
+Route::get('/register', [RegisterController::class, 'show'])
+    ->name('register.show');
+
+Route::post('/register', [RegisterController::class, 'process'])
+    ->name('register.process');
