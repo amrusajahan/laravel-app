@@ -47,7 +47,10 @@
             <div class="flex justify-end items-center gap-4">
                 <span class="bg-pink-200 border-2 border-black rounded-full px-5 py-2 text-sm font-semibold text-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] transition-all duration-200 -rotate-1 hover:rotate-0 hover:-translate-y-0.5">Welcome, {{ Auth::user()->name }}!</span>
 
-                <a href="/logout" class="bg-pink-200 border-2 border-black rounded-full px-5 py-2 text-sm font-semibold text-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] transition-all duration-200 -rotate-1 hover:rotate-0 hover:-translate-y-0.5">Log Out</a>
+                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="bg-pink-200 border-2 border-black rounded-full px-5 py-2 text-sm font-semibold text-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] hover:shadow-[5px_5px_0_0_rgba(0,0,0,1)] transition-all duration-200 -rotate-1 hover:rotate-0 hover:-translate-y-0.5">Log Out</a>
+                <form action="{{ route('logout') }}" method="POST" class="hidden" id="logout-form">
+                    @csrf
+                </form>
             </div>
             @else
             <!-- Login button -->
