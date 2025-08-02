@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoryController;
@@ -50,4 +51,9 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])
 Route::post('/login', [AuthController::class, 'process'])
     ->name('login.process');
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->name('logout');
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard.index');
