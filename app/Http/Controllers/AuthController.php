@@ -26,7 +26,8 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed
-            return redirect('/')->with('status', 'Logged in successfully!');
+            return redirect('/')
+                ->with('status', 'Logged in successfully!');
         }
 
         return back()->withInput()->withstatus('Login failed. Please check your credentials and try again.');
